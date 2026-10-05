@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="theme-color" content="#2E7D32">
+    <title>Registro de Trabajos</title>
+    <link rel="stylesheet" href="css/base.css">
+    <link rel="stylesheet" href="css/app.css">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
+</head>
+<body>
+
+    <button id="btnSalir" type="button">
+        <svg viewBox="0 0 24 24"><path d="M16 13v-2H7V8l-5 4 5 4v-3zM20 3h-8c-1.1 0-2 .9-2 2v3h2V5h8v14h-8v-3h-2v3c0 1.1.9 2 2 2h8c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2z"/></svg>
+        Salir
+    </button>
+
+    <header>
+        <h1>
+            <svg class="header-icon" viewBox="0 0 24 24">
+                <path d="M17,8C8,10,5.9,16.17,3.82,21.34L5.71,22l1-2.3A4.49,4.49,0,0,0,8,20.83c2.44,0,5.3-1.36,7.39-3.32C17.75,15.31,19,12.18,19,8.5A8.35,8.35,0,0,0,18.86,7,8.26,8.26,0,0,0,17,8ZM8,19a2.9,2.9,0,0,1-1.16-.24c.44-1.06,1.4-3.38,3.16-4.76,1.4-1.1,3.2-1.7,5-2.16A8.09,8.09,0,0,1,13.5,15.5C11.6,17.1,9.5,19,8,19Z"/>
+            </svg>
+            Registro de Trabajos
+        </h1>
+    </header>
+
+    <div class="container">
+        <form id="registroForm">
+
+            <div class="card">
+                <div class="input-group">
+                    <input type="date" id="fecha" required placeholder=" ">
+                    <label for="fecha">Fecha</label>
+                </div>
+                <div class="input-group input-group--last">
+                    <input type="text" id="dia" readonly placeholder=" " class="input-readonly">
+                    <label for="dia">Día</label>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="input-group input-group--last">
+                    <input type="text" id="lote" placeholder=" " required autocomplete="off">
+                    <label for="lote">Lote</label>
+                </div>
+            </div>
+
+            <div class="card">
+                <div class="section-title">
+                    <svg class="icon icon-sm" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/></svg>
+                    Seleccionar Cultivo
+                </div>
+                <div class="chips-container" id="cultivoChips">
+                    <div class="chip" data-value="Trigo">Trigo</div>
+                    <div class="chip" data-value="Maíz">Maíz</div>
+                    <div class="chip" data-value="Colza">Colza</div>
+                    <div class="chip" data-value="Karinata">Karinata</div>
+                    <div class="chip" data-value="Soja">Soja</div>
+                    <div class="chip" data-value="Alfalfa">Alfalfa</div>
+                    <div class="chip" data-value="Avena">Avena</div>
+                    <div class="chip" data-value="Girasol">Girasol</div>
+                    <div class="chip" data-value="Vicia">Vicia</div>
+                </div>
+                <input type="hidden" id="cultivo" required>
+            </div>
+
+            <div class="card card--row">
+                <div class="input-group input-group--flex input-group--last">
+                    <input type="number" id="hectareas" step="0.01" placeholder=" " required inputmode="decimal">
+                    <label for="hectareas">Hectáreas</label>
+                </div>
+                <div class="input-group input-group--flex input-group--last">
+                    <input type="number" id="gasoil" step="0.01" placeholder=" " required inputmode="decimal">
+                    <label for="gasoil">% Lts Gasoil</label>
+                </div>
+            </div>
+
+            <button type="submit" class="btn-submit" id="btnGuardar">
+                <span id="btnText">Guardar Registro</span>
+                <div class="spinner" id="spinner"></div>
+            </button>
+
+        </form>
+    </div>
+
+    <div id="toast">
+        <svg class="icon" viewBox="0 0 24 24"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+        <span id="toastMsg">Registro guardado</span>
+    </div>
+
+    <script src="js/auth.js"></script>
+    <script src="js/app.js"></script>
+</body>
+</html>
