@@ -1,75 +1,103 @@
+
 /* ============================================================
-   login.css — Estilos exclusivos de la pantalla de login
+   login.css — Estilos exclusivos del inicio de sesión
    ============================================================ */
 
 body {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
     min-height: 100vh;
+    min-height: 100dvh;
     padding: 20px;
 }
 
+/* Tarjeta del login */
 .login-card {
-    background: var(--card-bg);
-    border: 1px solid var(--border);
-    border-radius: 24px;
-    padding: 40px 28px;
     width: 100%;
     max-width: 400px;
+    min-width: 0;
+    padding: 40px 28px;
+    border: 1px solid var(--border);
+    border-radius: 24px;
+    background: var(--card-bg);
     box-shadow: var(--shadow-lg);
     animation: fadeIn 0.5s ease;
 }
 
+/* Encabezado */
 .login-header {
-    text-align: center;
     margin-bottom: 32px;
+    text-align: center;
 }
 
 .login-header svg {
+    display: block;
     width: 56px;
     height: 56px;
+    margin: 0 auto 12px;
     fill: var(--primary-light);
-    margin-bottom: 12px;
 }
 
 .login-header h1 {
+    color: var(--primary);
     font-size: 1.35rem;
     font-weight: 800;
     text-transform: uppercase;
     letter-spacing: 1.5px;
-    color: var(--primary);
+    overflow-wrap: anywhere;
 }
 
 .login-header p {
+    margin-top: 6px;
     color: var(--text-light);
     font-size: 0.85rem;
-    margin-top: 6px;
+    line-height: 1.5;
 }
 
-.btn-login {
+/* Campos del login */
+.login-card .input-group {
     width: 100%;
-    padding: 20px;
+    min-width: 0;
+}
+
+.login-card .input-group input {
+    width: 100%;
+    min-width: 0;
+}
+
+/* Botón de ingreso */
+.btn-login {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    width: 100%;
+    min-width: 0;
+    min-height: 54px;
+    margin-top: 10px;
+    padding: 16px;
     border: none;
     border-radius: 16px;
-    background: linear-gradient(135deg, var(--primary) 0%, var(--accent-dark) 100%);
+    background: linear-gradient(
+        135deg,
+        var(--primary) 0%,
+        var(--accent-dark) 100%
+    );
     color: white;
     font-size: 1rem;
     font-weight: 800;
     text-transform: uppercase;
-    letter-spacing: 1.5px;
-    cursor: pointer;
+    letter-spacing: 1px;
+    text-align: center;
+    overflow-wrap: anywhere;
     box-shadow: 0 8px 20px rgba(46, 125, 50, 0.25);
-    transition: all 0.2s ease;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 12px;
-    margin-top: 10px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
 .btn-login:active {
-    transform: scale(0.97);
+    transform: scale(0.98);
     box-shadow: 0 4px 12px rgba(46, 125, 50, 0.25);
 }
 
@@ -78,17 +106,67 @@ body {
     cursor: not-allowed;
 }
 
+/* Mensaje de error */
 .error-msg {
-    background: #FFEBEE;
-    color: var(--danger);
+    display: none;
+    margin-bottom: 18px;
     padding: 12px 16px;
     border-radius: 12px;
+    background: #FFEBEE;
+    color: var(--danger);
     font-size: 0.85rem;
     font-weight: 600;
-    margin-bottom: 18px;
+    line-height: 1.5;
     text-align: center;
-    display: none;
+    overflow-wrap: anywhere;
     animation: shake 0.4s ease;
 }
 
-.error-msg.show { display: block; }
+.error-msg.show {
+    display: block;
+}
+
+/* Adaptación a celulares */
+@media (max-width: 480px) {
+    body {
+        padding: 16px;
+    }
+
+    .login-card {
+        padding: 32px 20px;
+        border-radius: 20px;
+    }
+
+    .login-header {
+        margin-bottom: 26px;
+    }
+
+    .login-header h1 {
+        font-size: 1.2rem;
+        letter-spacing: 1px;
+    }
+
+    .login-header svg {
+        width: 48px;
+        height: 48px;
+    }
+
+    .btn-login {
+        font-size: 0.9rem;
+        letter-spacing: 0.7px;
+    }
+}
+
+@media (max-width: 350px) {
+    body {
+        padding: 10px;
+    }
+
+    .login-card {
+        padding: 26px 14px;
+    }
+
+    .login-header h1 {
+        font-size: 1.05rem;
+    }
+}
