@@ -7,43 +7,68 @@ body {
     padding-bottom: 40px;
 }
 
-/* Botón Salir */
+
+/* Botón Salir — discreto y adaptable */
 #btnSalir {
-    position: fixed;
-    top: 14px;
-    right: 16px;
-    z-index: 200;
-    display: flex;
+    position: absolute;
+    top: 12px;
+    right: 14px;
+    z-index: 110;
+
+    display: inline-flex;
     align-items: center;
     justify-content: center;
-    gap: 6px;
-    padding: 8px 16px;
-    border: 1.5px solid var(--border);
+    gap: 5px;
+
+    padding: 7px 11px;
+    border: 1px solid var(--border);
     border-radius: 20px;
-    background: rgba(255, 255, 255, 0.96);
+
+    background: rgba(255, 255, 255, 0.95);
     color: var(--primary);
-    font-size: 0.8rem;
+
+    font-size: 0.72rem;
     font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.3px;
+
     box-shadow: var(--shadow-sm);
-    transition: background 0.2s ease, transform 0.2s ease;
+    transition: background 0.2s ease;
+}
+
+#btnSalir svg {
+    width: 13px;
+    height: 13px;
+    flex-shrink: 0;
+    fill: var(--primary);
 }
 
 #btnSalir:hover {
     background: var(--primary-soft);
-    border-color: var(--accent);
 }
 
 #btnSalir:active {
-    transform: scale(0.95);
+    background: var(--primary-soft);
 }
 
-#btnSalir svg {
-    width: 14px;
-    height: 14px;
-    flex-shrink: 0;
-    fill: var(--primary);
+/* En celulares */
+@media (max-width: 480px) {
+    #btnSalir {
+        position: relative;
+        top: auto;
+        right: auto;
+
+        display: flex;
+        width: fit-content;
+        margin: 10px 12px 0 auto;
+
+        padding: 6px 10px;
+        font-size: 0.68rem;
+        box-shadow: none;
+    }
+
+    header {
+        padding-top: 14px;
+    }
 }
 
 /* Encabezado */
